@@ -25,7 +25,7 @@ export default function Contact() {
   const formRef = useRef(null);
   const formInView = useInView(formRef, { once: true, margin: "-60px" });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!formState.name || !formState.email || !formState.message) {
       setError("Please fill out all required fields.");
@@ -34,13 +34,31 @@ export default function Contact() {
     setError("");
     setLoading(true);
 
-    // Simulate sending message
-    setTimeout(() => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSuccess(true);
+        setFormState({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setError(data.error || "Failed to send message. Please check details or try again later.");
+      }
+    } catch (err) {
+      console.error("Error submitting contact form:", err);
+      setError("An unexpected error occurred. Please try again later.");
+    } finally {
       setLoading(false);
-      setSuccess(true);
-      setFormState({ name: "", email: "", subject: "", message: "" });
-    }, 1800);
+    }
   };
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
