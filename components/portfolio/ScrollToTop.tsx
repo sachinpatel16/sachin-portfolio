@@ -12,11 +12,11 @@ export default function ScrollToTop() {
     const handleScroll = () => {
       const scrolled = window.scrollY;
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      
+
       if (totalHeight > 0) {
         setProgress((scrolled / totalHeight) * 100);
       }
-      
+
       setVisible(scrolled > 400);
     };
 

@@ -51,7 +51,8 @@ export default function Hero() {
     
     typingTimerRef.current = setInterval(() => {
       if (index < content.length) {
-        setTypedOutput((prev) => prev + content.charAt(index));
+        const char = content.charAt(index);
+        setTypedOutput((prev) => prev + char);
         index++;
       } else {
         setIsTyping(false);
@@ -188,14 +189,14 @@ export default function Hero() {
               className="w-full max-w-xl mx-auto rounded-lg border border-[#EAEAE4] bg-white shadow-md overflow-hidden font-mono text-xs text-stone-800"
             >
               {/* Notebook header tabs */}
-              <div className="bg-[#FAF9F5] border-b border-[#EAEAE4] flex items-center justify-between px-4">
-                <div className="flex gap-1.5 pt-3">
+              <div className="bg-[#FAF9F5] border-b border-[#EAEAE4] flex items-center justify-between px-3 sm:px-4">
+                <div className="flex gap-1.5 pt-3 overflow-x-auto scrollbar-none max-w-[calc(100%-40px)] sm:max-w-none shrink-0">
                   {notebookPages.map((page) => (
                     <button
                       key={page.id}
                       type="button"
                       onClick={() => setActiveTab(page.id)}
-                      className={`px-3 py-2 text-[10px] uppercase tracking-wider font-mono border-t border-x rounded-t transition-colors duration-200 ${
+                      className={`px-3 py-2 text-[10px] uppercase tracking-wider font-mono border-t border-x rounded-t transition-colors duration-200 shrink-0 ${
                         activeTab === page.id
                           ? "bg-white border-[#EAEAE4] text-[#B45309] font-bold"
                           : "bg-transparent border-transparent text-stone-400 hover:text-stone-700"
@@ -205,24 +206,24 @@ export default function Hero() {
                     </button>
                   ))}
                 </div>
-                <div className="text-[9px] text-stone-400 flex items-center gap-1.5 font-bold">
+                <div className="text-[9px] text-stone-400 flex items-center gap-1.5 font-bold shrink-0 ml-2">
                   <BookOpen className="w-3.5 h-3.5 text-[#B45309]" />
-                  sachin_notes
+                  <span className="hidden sm:inline">sachin_notes</span>
                 </div>
               </div>
 
               {/* Title bar of document */}
-              <div className="bg-[#FAF9F5]/40 px-6 py-2 border-b border-[#EAEAE4] text-[10px] text-stone-500 flex items-center justify-between">
+              <div className="bg-[#FAF9F5]/40 px-4 sm:px-6 py-2 border-b border-[#EAEAE4] text-[10px] text-stone-500 flex items-center justify-between">
                 <span>FILE: {activePage.title}</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               </div>
 
               {/* Notebook page text writing block */}
-              <div className="p-6 h-60 bg-white overflow-y-auto leading-relaxed select-text font-mono text-[11px] text-stone-700 relative">
+              <div className="p-4 sm:p-6 h-60 bg-white overflow-y-auto leading-relaxed select-text font-mono text-[11px] text-stone-700 relative">
                 {/* Horizontal guide lines */}
                 <div className="absolute inset-0 editorial-grid opacity-[0.25] pointer-events-none" />
                 
-                <pre className="relative z-10 whitespace-pre-wrap font-mono">
+                <pre className="relative z-10 whitespace-pre-wrap break-words font-mono">
                   {typedOutput}
                   {isTyping && (
                     <span className="inline-block w-1.5 h-3.5 bg-[#B45309] ml-0.5 animate-pulse" />

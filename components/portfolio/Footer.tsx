@@ -41,7 +41,7 @@ export default function Footer() {
       {/* Notebook guideline */}
       <div className="absolute top-0 bottom-0 left-[10%] md:left-[15%] w-px bg-[#EAEAE4] pointer-events-none hidden sm:block" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 pt-16 pb-8 pl-0 sm:pl-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-16 mb-12">
           
           {/* Logo & Info */}

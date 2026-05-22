@@ -18,12 +18,12 @@ export default function About() {
 
   return (
     <section id="about" className="section-padding relative overflow-hidden bg-[#FAF9F5] border-t border-[#EAEAE4]">
-      
+
       {/* Notebook sidebar guideline */}
       <div className="absolute top-0 bottom-0 left-[10%] md:left-[15%] w-px bg-[#EAEAE4] pointer-events-none hidden sm:block" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10 pl-0 sm:pl-8">
-        
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+
         {/* Header */}
         <motion.div
           ref={headerRef}
@@ -45,7 +45,7 @@ export default function About() {
 
         {/* Bento Grid Layout */}
         <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-          
+
           {/* Card 1: Main Philosophy */}
           <div className="md:col-span-7 paper rounded-lg p-6 md:p-8 flex flex-col justify-between hover:border-[#B45309]/30 transition-colors duration-300">
             <div className="space-y-6">
@@ -57,7 +57,7 @@ export default function About() {
                 Rather than jumping to bloated solutions, I focus on profiling queries, optimizing data structures (using Redis and event-driven Kafka logs), and setting up clean multi-tenant security layers. My goal is to build API microservices that run at sub-100ms response times.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 mt-8 border-t border-[#EAEAE4] text-xs">
               <div className="space-y-1">
                 <span className="text-[#1C1917] font-semibold flex items-center gap-1.5">
@@ -86,7 +86,7 @@ export default function About() {
           {/* Card 2: Metrics */}
           <div className="md:col-span-5 grid grid-cols-2 gap-4 items-stretch">
             {stats.map((stat) => (
-              <div 
+              <div
                 key={stat.label}
                 className="paper rounded-lg p-5 flex flex-col justify-between hover:border-[#B45309]/30 transition-colors duration-300 group"
               >
@@ -107,7 +107,7 @@ export default function About() {
           {/* Card 3: Deep Technical Focus Areas (Replaced progress bars with description boxes) */}
           <div className="md:col-span-12 paper rounded-lg p-6 md:p-8 hover:border-[#B45309]/30 transition-colors duration-300">
             <div className="grid md:grid-cols-3 gap-8 items-start">
-              
+
               <div className="space-y-2">
                 <span className="font-mono text-[9px] text-stone-400 uppercase tracking-widest block">operational target</span>
                 <h4 className="text-lg font-serif font-bold text-[#1C1917]">Full-Cycle System Architecture</h4>

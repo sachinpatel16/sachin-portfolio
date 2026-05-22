@@ -163,7 +163,7 @@ export default function Projects() {
       {/* Notebook guideline */}
       <div className="absolute top-0 bottom-0 left-[10%] md:left-[15%] w-px bg-[#EAEAE4] pointer-events-none hidden sm:block" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10 pl-0 sm:pl-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         
         <motion.div
           ref={headerRef}

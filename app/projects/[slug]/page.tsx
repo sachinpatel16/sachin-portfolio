@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { 
-  ArrowLeft, 
-  Settings, 
-  CheckCircle2, 
+import {
+  ArrowLeft,
+  Settings,
+  CheckCircle2,
   ChevronRight
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -454,8 +454,8 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
       <div className="min-h-screen bg-[#FAF9F5] flex flex-col items-center justify-center p-6 text-center">
         <h1 className="text-2xl font-serif font-bold text-[#1C1917] mb-2">Project Not Found</h1>
         <p className="text-stone-500 text-sm mb-6">The project details page you are trying to view does not exist.</p>
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="px-5 py-2.5 font-mono text-[10px] uppercase tracking-widest bg-[#1C1917] text-[#FAF9F5] hover:bg-[#B45309] transition-colors duration-200"
         >
           &larr; Back to Portfolio
@@ -472,8 +472,8 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
       {/* Header Nav */}
       <header className="max-w-7xl mx-auto px-6 sm:px-8 relative z-20 pt-8 pl-6 sm:pl-16 md:pl-24">
         <div className="flex items-center justify-between border-b border-[#EAEAE4] pb-6">
-          <Link 
-            href="/#projects" 
+          <Link
+            href="/#projects"
             className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-stone-500 hover:text-[#B45309] transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
@@ -487,7 +487,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
 
       {/* Main Container */}
       <main className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10 pl-6 sm:pl-16 md:pl-24 py-12 md:py-16">
-        
+
         {/* Title and Metadata */}
         <div className="max-w-4xl space-y-6 mb-12">
           <span className="inline-block px-3 py-1 rounded bg-[#EAEAE4]/50 border border-[#EAEAE4] text-[#B45309] text-[10px] font-mono uppercase tracking-widest">
@@ -496,7 +496,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-[#1C1917] tracking-tight leading-tight">
             {project.title}
           </h1>
-          
+
           {/* Metadata Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-b border-[#EAEAE4] py-6 text-xs">
             <div className="space-y-1">
@@ -520,19 +520,19 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
 
         {/* Hero Cover Image */}
         <div className="w-full aspect-[21/9] rounded-lg overflow-hidden border border-[#EAEAE4] mb-12 shadow-sm relative bg-stone-100">
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="w-full h-full object-cover" 
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover"
           />
         </div>
 
         {/* Two Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
-          
+
           {/* Left Column: Case details */}
           <div className="lg:col-span-8 space-y-10">
-            
+
             {/* Overview */}
             <div className="space-y-4">
               <h2 className="text-xl md:text-2xl font-serif font-bold text-[#1C1917] border-b border-[#EAEAE4]/80 pb-2">
@@ -602,14 +602,14 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
 
           {/* Right Column: Tech Stack & Tools */}
           <div className="lg:col-span-4 space-y-8 lg:sticky lg:top-24">
-            
+
             {/* Tech Stack Box */}
             <div className="p-6 rounded-lg border border-[#EAEAE4] bg-white space-y-6 shadow-sm">
               <h3 className="text-sm font-mono font-bold text-[#1C1917] uppercase tracking-wider border-b border-[#EAEAE4] pb-3 flex items-center gap-2">
                 <Settings className="w-4 h-4 text-stone-500 animate-spin-slow" />
                 Technology Stack
               </h3>
-              
+
               <div className="space-y-6">
                 {project.techStack.map((group, idx) => (
                   <div key={idx} className="space-y-2">
@@ -618,7 +618,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
                     </span>
                     <div className="flex flex-wrap gap-1.5">
                       {group.items.map((item) => (
-                        <span 
+                        <span
                           key={item}
                           className="px-2 py-1 rounded bg-[#FAF9F5] border border-[#EAEAE4] text-[10px] text-stone-700 font-sans"
                         >
@@ -637,7 +637,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
               <p className="text-stone-400 text-xs leading-relaxed">
                 Let's discuss how we can deploy a similar, custom-tailored system for your business requirements.
               </p>
-              <Link 
+              <Link
                 href="/#contact"
                 className="w-full py-2.5 rounded bg-[#B45309] hover:bg-[#B45309]/90 text-white font-mono text-[10px] uppercase tracking-widest transition-colors flex items-center justify-center gap-1.5"
               >
@@ -653,8 +653,8 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
 
         {/* Bottom Navigation */}
         <div className="border-t border-[#EAEAE4] pt-12 flex justify-between items-center text-xs">
-          <Link 
-            href="/#projects" 
+          <Link
+            href="/#projects"
             className="group flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-[#B45309] hover:text-[#1C1917] transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />

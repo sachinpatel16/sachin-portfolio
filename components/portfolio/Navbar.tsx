@@ -53,11 +53,10 @@ export default function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
             ? "bg-[#FAF9F5]/90 backdrop-blur-md border-b border-[#EAEAE4] shadow-sm"
             : "bg-transparent"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="flex items-center justify-between h-20">
@@ -78,11 +77,10 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className={`relative px-4 py-2 font-mono text-[10px] uppercase tracking-widest transition-colors duration-200 ${
-                    activeSection === link.href.replace("#", "")
+                  className={`relative px-4 py-2 font-mono text-[10px] uppercase tracking-widest transition-colors duration-200 ${activeSection === link.href.replace("#", "")
                       ? "text-[#B45309] font-bold"
                       : "text-stone-500 hover:text-stone-900"
-                  }`}
+                    }`}
                 >
                   {activeSection === link.href.replace("#", "") && (
                     <motion.span
@@ -94,7 +92,7 @@ export default function Navbar() {
                   <span className="relative z-10">{link.label}</span>
                 </button>
               ))}
-              
+
               {/* CV Download button */}
               <motion.a
                 href="/docs/Sachin_Patel_2.pdf"
@@ -153,16 +151,15 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.04 }}
                 onClick={() => handleNavClick(link.href)}
-                className={`text-left px-4 py-3 font-mono text-xs uppercase tracking-widest border-b border-[#EAEAE4] ${
-                  activeSection === link.href.replace("#", "")
+                className={`text-left px-4 py-3 font-mono text-xs uppercase tracking-widest border-b border-[#EAEAE4] ${activeSection === link.href.replace("#", "")
                     ? "text-[#B45309] font-bold"
                     : "text-stone-500 hover:text-[#1C1917]"
-                }`}
+                  }`}
               >
                 {link.label}
               </motion.button>
             ))}
-            
+
             <motion.a
               href="/docs/Sachin_Patel_2.pdf"
               download
