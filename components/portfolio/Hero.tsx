@@ -139,7 +139,7 @@ export default function Hero() {
               </button>
               
               <a
-                href="/resume.pdf"
+                href="/docs/Sachin_Patel_2.pdf"
                 download
                 className="px-5 py-3 bg-white hover:bg-stone-50 text-[#1C1917] border border-[#EAEAE4] hover:border-[#B45309] font-mono text-[10px] uppercase tracking-wider transition-all duration-200 flex items-center gap-2"
               >
