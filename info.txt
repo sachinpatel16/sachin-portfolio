@@ -1,0 +1,122 @@
+Sachin Patel
+Passionate Python Developer(AI/ML)
+sachinpatel7496007 @gmail.com
+Sachin
+PROFILE
+LinkedIn
+9824117496 Ahmedabad, Gujarat 2002-10-16
+Iʼm a passionate Python & AI/ ML developer with over 2+ years of experience in building scalable backend
+systems and AI-driven solutions. I specialize in Python, Django, Django REST Framework (DRF), and FastAPI,
+with a strong focus on API development, automation, and system integration.
+I have hands-on experience working with modern AI technologies such as LangChain, LangGraph, LlamaIndex,
+and Amazon Bedrock Agents to build intelligent workflows, AI agents, and context-aware applications. I have
+also developed Generative AI solutions and RAG-based systems for real-world use cases.
+In the field of Machine Learning and Computer Vision, I have fine-tuned YOLO models and built custom object
+detection pipelines using annotated datasets. I am experienced in working with vector databases like Pinecone
+and handling large-scale data for AI applications.
+I have strong database expertise in PostgreSQL and MySQL, focusing on performance optimization and
+scalable design. Additionally, I have worked with AWS services such as Amazon EC2, S3, CloudWatch,
+SageMaker, and ECS to deploy, monitor, and scale applications in production environments.
+I enjoy solving real-world problems, integrating third-party APIs, and building end-to-end intelligent systems
+that are efficient, scalable, and innovative.
+PROFESSIONAL EXPERIENCE
+Python Developer, Qrious Tech Team LLP
+I gained hands-on experience building AI agents and agentic workflows, with
+expertise in fine-tuning models and prompt engineering. I also developed scalable
+backend systems to deliver real-world AI applications.
+Python Developer, Karmaleen Technology
+I gained hands-on experience in building AI-driven applications using FastAPI. I
+implemented RAG pipelines with LangChain and LlamaIndex for intelligent, context
+aware data retrieval.
+Python Developer, Codefencers Pvt. Ltd.
+I gained hands-on Experience in Django developer, focusing on backend
+development andweb applications. I enhance my skills through real-world projects,
+ensuring robust and scalable solutions.
+EDUCATION
+03/2026 – Present
+Ahmedabad
+02/2025 – 02/2026
+Ahmedabad, India
+01/2024 – 02/2025
+Ahmedabad, India
+B.E IT, Sal Engineering And Technical Institute
+2020 – 2024
+Ahmedabad
+SKILLS
+Python
+DRF
+Chatbot
+Langgraph(AI framework)
+Deep Agent
+DSPY(AI framework)
+AI/ML
+Critical Problem-Solving
+YOLO/RetinaFace
+AWS(S3,EC2,Lambda,RDS)
+AWS Glue
+Django
+Fastapi
+Rag
+Langchain
+Llamaindex
+SQL - Sequal Database
+Postgresql
+n8n(Automation)
+Vector Database
+Bedrock Agents
+AWS SageMaker
+PROJECTS
+QBot – AI-Powered Website Chatbot Platform, Reactjs, Fastapi, Postgresql, Pinecone, Amazon Bedrock, EC2
+•
+QBot is an AI-powered chatbot platform that enables companies to integrate intelligent chatbots into their
+websites using their own knowledge base. It allows admins or businesses to create workspaces, upload
+documents and FAQs, and activate selected data for chatbot responses.
+•
+The platform provides a customizable widget script that can be easily embedded into any website. Once
+deployed, the chatbot interacts with users in real-time, delivering accurate and context-aware answers,
+helping businesses automate customer support and improve user engagement.
+TMS System AI Powered, Reactjs, Fastapi, Langchain, Postgresql, EC2, S3, cloud watch
+•
+Team Management System (TMS) is an AI-powered platform that helps managers and team leads streamline
+requirement gathering and hiring processes. Users can enter project requirements through a chatbot, which
+intelligently asks questions to collect complete details. The system analyzes these inputs to generate clear
+job descriptions and project needs. It automatically matches and filters resumes based on the given criteria.
+TMS supports multiple user roles with proper access control for smooth workflow management. It reduces
+manual effort and speeds up candidate selection. Overall, it improves team productivity by automating
+requirement analysis and recruitment decisions.
+Learnify AI, 
+Reactjs, Fastapi, Langchain, Langgrapg, Langsmith, Ragpipline, Postgresql, Lambda, S3, Cloudwatch,
+•
+Learnify is an AI-powered education platform designed to simplify exam preparation and content
+generation. Users can upload documents or select study material based on their academic standard or
+syllabus. The system intelligently analyzes the content and extracts key topics and concepts. Based on user
+requirements, it dynamically generates exam papers including MCQs, short answer questions, and long
+descriptive questions. The platform allows customization of question types, difficulty levels, and chapters. It
+ensures relevant and structured question generation aligned with the selected material. Overall, Learnify
+helps students and educators save time by automating exam creation and improving learning efficiency.
+•
+Website Generator AI, Fastapi, DSPY, Langgraph, Langchain, Deep Agents, Amazon Bedrock, S3, AWS Lambda
+Website Generator AI is an AI-powered web creation platform where users enter a brief business description,
+and the system intelligently asks follow-up questions to understand goals, industry, and design preferences.
+Based on user inputs, the AI automatically generates single-page or multi-page websites with structured
+layouts, relevant content, and responsive design. The platform streamlines website creation by combining
+conversational AI, dynamic page generation, and customizable components, making it easy for businesses
+to launch professional websites with minimal effort.
+•
+Barter Club, DRF, PostgreSQL, Razorpay, Amazon CloudWatch
+Barter Club is a digital barter and voucher management platform built using Django REST Framework (DRF)
+and PostgreSQL, with Razorpay integration for secure payments. The system allows merchants to create and
+manage vouchers and gift cards, while users can purchase, redeem, and track vouchers through a wallet
+based flow. It supports role-based access (admin, merchant, and user), voucher lifecycle management,
+transaction history, and a scalable API-driven architecture suitable for real-world applications.
+•
+AI-Powered Telegram Support Bot, n8n, Automation
+Built an end-to-end automated Telegram support bot using n8n, enabling seamless handling of both text
+and voice messages. Integrated AI (OpenAI/ LLM) for natural language understanding, automatic
+transcription of voice notes, and intelligent reply generation. Implemented workflow automation for
+message routing, logging, error handling, and analytics. This solution reduced manual support effort and
+delivered real-time, 24/ 7 conversational assistance..
+LANGUAGES
+English
+Hindi
+Gujarat

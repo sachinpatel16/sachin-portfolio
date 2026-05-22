@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 98%;
+    --foreground: 24 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+    --primary: 24 85% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 10% 90%;
+    --secondary-foreground: 24 10% 10%;
+    --muted: 40 10% 95%;
+    --muted-foreground: 24 5% 45%;
+    --accent: 24 85% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 10% 88%;
+    --input: 40 10% 88%;
+    --ring: 24 85% 40%;
+    --radius: 0.25rem;
+  }
+}
+
+@layer base {
+  body {
+    background-color: #FAF9F5;
+    color: #1C1917;
+    @apply antialiased font-sans;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight text-[#1C1917];
+  }
+}
+
+/* Minimalist gray scrollbar */
+::-webkit-webkit-scrollbar, ::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #E5E5E0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B45309;
+}
+
+/* Nordic Paper Cards & Widgets */
+.paper {
+  background: #FFFFFF;
+  border: 1px solid #EAEAE4;
+  box-shadow: 0 4px 30px -4px rgba(28, 25, 23, 0.02), 0 2px 4px -2px rgba(28, 25, 23, 0.01);
+}
+
+.paper-interactive {
+  background: #FFFFFF;
+  border: 1px solid #EAEAE4;
+  box-shadow: 0 4px 30px -4px rgba(28, 25, 23, 0.02), 0 2px 4px -2px rgba(28, 25, 23, 0.01);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.paper-interactive:hover {
+  border-color: #B45309;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px -8px rgba(180, 83, 9, 0.06), 0 4px 12px -4px rgba(180, 83, 9, 0.02);
+}
+
+/* Book/Notebook margins */
+.editorial-grid {
+  background-image: 
+    linear-gradient(#EAEAE4 1px, transparent 1px);
+  background-size: 100% 48px;
+}
+
+.vertical-rule {
+  position: relative;
+}
+.vertical-rule::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background-color: #EAEAE4;
+}
+
+/* Accent text gradients - warm bronze/clay */
+.editorial-accent {
+  color: #B45309;
+}
+
+.section-padding {
+  @apply py-14 md:py-20;
+}
+
