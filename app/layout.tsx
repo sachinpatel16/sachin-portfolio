@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Lora, JetBrains_Mono } from 'next/font/google';
+import Script from 'next/script';
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -40,7 +41,22 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${lora.variable} ${jetbrains.variable}`}>
       <body className="font-sans antialiased bg-[#FAF9F5] text-[#1C1917]">
         {children}
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q0GV8JXH8T"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-Q0GV8JXH8T');
+          `}
+        </Script>
       </body>
     </html>
   );
 }
+
