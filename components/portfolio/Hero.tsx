@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Mail, ArrowDown, BookOpen, Play, Download } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, ArrowDown, BookOpen, Play, Download, Sparkles, Workflow, Eye, Server } from "lucide-react";
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/sachinpatel16", label: "GitHub" },
@@ -16,7 +16,7 @@ const notebookPages = [
     id: "overview", 
     label: "Overview", 
     title: "systems_architecture.py",
-    content: "class Engineer:\n    name = \"Sachin Patel\"\n    specialty = \"Python & AI/ML Development\"\n    experience = \"2+ Years\"\n    philosophy = \"Build clean, agentic systems. Optimize DB and memory.\"\n\n# Objective:\n# Deploy FastAPI/Django rest interfaces,\n# build intelligent RAG pipelines with LangGraph & DSPy,\n# fine-tune LLMs using LoRA & QLoRA,\n# optimize computer vision (YOLO) pipelines."
+    content: "class Engineer:\n    name = \"Sachin Patel\"\n    specialty = \"Python & AI/ML Development\"\n    experience = \"3.5+ Years\"\n    philosophy = \"Build clean, agentic systems. Optimize DB and memory.\"\n\n# Objective:\n# Deploy FastAPI/Django rest interfaces,\n# build intelligent RAG pipelines with LangGraph & DSPy,\n# fine-tune LLMs using LoRA & QLoRA,\n# optimize computer vision (YOLO) pipelines."
   },
   { 
     id: "llm", 
@@ -121,6 +121,53 @@ export default function Hero() {
               I build scalable backend systems, context-aware RAG pipelines using LangGraph and DSPy, and custom computer vision workflows. Focused on clean asynchronous code and solid system integration.
             </motion.p>
 
+            {/* Core Focus Areas */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="grid grid-cols-2 gap-3 max-w-md"
+            >
+              {[
+                { 
+                  icon: Sparkles, 
+                  label: "GenAI", 
+                  desc: "RAG & LLM fine-tuning" 
+                },
+                { 
+                  icon: Workflow, 
+                  label: "AI Agents", 
+                  desc: "LangGraph state loops" 
+                },
+                { 
+                  icon: Eye, 
+                  label: "Computer Vision", 
+                  desc: "YOLO detection & OpenCV" 
+                },
+                { 
+                  icon: Server, 
+                  label: "Backend Dev", 
+                  desc: "FastAPI & Django APIs" 
+                }
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div 
+                    key={item.label} 
+                    className="p-3 bg-white border border-[#EAEAE4] hover:border-[#B45309]/30 rounded flex items-start gap-2.5 transition-all duration-200 shadow-sm group"
+                  >
+                    <div className="w-6 h-6 rounded bg-[#FAF9F5] border border-[#EAEAE4] text-stone-400 group-hover:text-[#B45309] group-hover:border-[#B45309]/20 flex items-center justify-center shrink-0 transition-colors">
+                      <Icon className="w-3.5 h-3.5" />
+                    </div>
+                    <div className="space-y-0.5">
+                      <h4 className="font-mono text-[10px] font-bold text-[#1C1917] tracking-wider uppercase">{item.label}</h4>
+                      <p className="text-[9px] text-stone-500 leading-tight">{item.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </motion.div>
+
             {/* Action buttons with Download CV */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -140,7 +187,7 @@ export default function Hero() {
               </button>
               
               <a
-                href="/docs/Sachin_Patel_2.pdf"
+                href="/docs/Sachin_Patel_3+.pdf"
                 download
                 className="px-5 py-3 bg-white hover:bg-stone-50 text-[#1C1917] border border-[#EAEAE4] hover:border-[#B45309] font-mono text-[10px] uppercase tracking-wider transition-all duration-200 flex items-center gap-2"
               >

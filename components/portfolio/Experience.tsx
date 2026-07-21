@@ -7,47 +7,18 @@ import { Briefcase, GraduationCap, Calendar, MapPin, Check } from "lucide-react"
 const experiences = [
   {
     type: "work",
-    title: "Python Developer",
-    company: "Qrious Tech Team LLP",
+    title: "Senior Python Developer",
+    company: "Ajeevantech Global IT Solutions",
     location: "Ahmedabad, Gujarat, India",
-    period: "03/2026 — Present",
+    period: "01/2023 — Present",
     current: true,
     description:
-      "Hands-on experience building AI agents and agentic workflows. Focus on fine-tuning models, prompt engineering, and developing scalable backend systems to deliver real-world AI applications.",
+      "Architect and deliver scalable backend architectures, multi-agent AI systems, and custom computer vision pipelines. Lead the development of high-performance microservices and secure data APIs.",
     achievements: [
-      "Built multi-agent conversational workflows using LangGraph and DSPy frameworks",
-      "Fine-tuned LLM parameters and engineered optimized system prompts for context accuracy",
-      "Developed and optimized scalable API services running on AWS infrastructure",
-    ],
-  },
-  {
-    type: "work",
-    title: "Python Developer",
-    company: "Karmaleen Technology",
-    location: "Ahmedabad, Gujarat, India",
-    period: "02/2025 — 02/2026",
-    current: false,
-    description:
-      "Built AI-driven applications using FastAPI. Implemented advanced Retrieval-Augmented Generation (RAG) pipelines with LangChain and LlamaIndex for intelligent, context-aware data retrieval.",
-    achievements: [
-      "Designed and deployed vector database storage indexing systems to query custom documents",
-      "Created sub-100ms FastAPI rest service layers to handle real-time database lookups",
-      "Programmed semantic search pipelines to clean, chunk, and index unstructured company files",
-    ],
-  },
-  {
-    type: "work",
-    title: "Python Developer",
-    company: "Codefencers Pvt. Ltd.",
-    location: "Ahmedabad, Gujarat, India",
-    period: "01/2024 — 02/2025",
-    current: false,
-    description:
-      "Focused on Django backend development, constructing secure REST APIs and robust web applications. Enhanced code robustness and delivered scalable solutions for real-world projects.",
-    achievements: [
-      "Developed high-throughput API endpoints utilizing Django REST Framework (DRF)",
-      "Improved query performance by resolving N+1 issues and optimizing database indexing",
-      "Maintained modular MVC structures and integrated external payment and automation APIs",
+      "Build intelligent multi-agent conversational workflows and RAG pipelines using LangChain, LangGraph, and DSPy",
+      "Develop and optimize high-throughput asynchronous REST APIs using FastAPI, Django, and Django REST Framework",
+      "Design and deploy custom computer vision and object detection pipelines using OpenCV, YOLO, and RetinaFace",
+      "Orchestrate containerized services and scalable database configurations on AWS cloud environments (EC2, S3, Lambda, RDS)",
     ],
   },
   {

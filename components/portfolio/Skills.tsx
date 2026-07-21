@@ -30,7 +30,7 @@ const skills = [
   { name: "Bedrock Agents", category: "ai", level: "Advanced", desc: "Fully managed conversational agent workflows" },
   { name: "Vector DBs", category: "ai", level: "Advanced", desc: "Pinecone and pgvector database integration" },
   { name: "LlamaIndex", category: "ai", level: "Advanced", desc: "Data connectors and context-aware indexing" },
-  { name: "YOLO/RetinaFace", category: "ai", level: "Advanced", desc: "Computer vision custom object detection pipelines" },
+  { name: "Computer Vision", category: "ai", level: "Advanced", desc: "Object detection, face recognition, and custom OpenCV & YOLO pipelines" },
   
   // DevOps
   { name: "AWS S3 & EC2", category: "infra", level: "Advanced", desc: "Virtual servers, storage configurations, and security groups" },

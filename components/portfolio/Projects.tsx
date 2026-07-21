@@ -16,12 +16,21 @@ const projects = [
     category: "AI/ML",
   },
   {
-    slug: "tms-system",
-    title: "TMS System – AI-Powered Hiring",
+    slug: "hireme-ai",
+    title: "HireMe AI – Resume Screening System",
     description:
-      "A Team Management System to streamline requirement gathering and hiring. Users input project specifications through a chatbot, which generates detailed job descriptions and requirements. The platform automatically indexes and filters matching resumes, reducing manual screening effort and boosting productivity.",
+      "An AI-powered Resume Screening and Candidate Management System. Features a smart matching engine analyzing JDs and resumes to rank applicants using LLMs and RAG, structured AI resume parsing, candidate shortlisting, and detailed match score insights to streamline recruitment.",
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
-    tags: ["Reactjs", "FastAPI", "LangChain", "PostgreSQL", "AWS EC2", "AWS S3", "CloudWatch"],
+    tags: ["React.js", "FastAPI", "LangChain", "LangGraph", "RAG", "PostgreSQL", "ChromaDB", "Docker", "AWS S3", "Redis"],
+    category: "AI/ML",
+  },
+  {
+    slug: "vigilense",
+    title: "Vigilense – CV Surveillance Platform",
+    description:
+      "An AI-powered computer vision surveillance platform processing CCTV streams, videos, and images in real-time. Features multi-object tracking, intrusion detection, restricted zone monitoring, face recognition, and event alerts.",
+    image: "/image/vigilense.png",
+    tags: ["FastAPI", "YOLOv8", "OpenCV", "InsightFace", "DeepFace", "ByteTrack", "DeepSORT", "PostgreSQL", "Docker", "WebSockets"],
     category: "AI/ML",
   },
   {
@@ -49,6 +58,15 @@ const projects = [
       "A digital barter and gift card management app. Merchants create, distribute, and track vouchers, while customers purchase, redeem, and trade them using a wallet system. Utilizes secure transaction flows, custom analytics, and a highly scalable RESTful API design.",
     image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80",
     tags: ["Django", "Django REST Framework", "PostgreSQL", "Razorpay", "AWS CloudWatch"],
+    category: "Backend",
+  },
+  {
+    slug: "hrms-system",
+    title: "HRMS – Corporate Management System",
+    description:
+      "A Human Resource Management System (HRMS) to manage employee data and organizational operations. Includes secure REST APIs for attendance tracking, leave and holiday management, policy guidelines, and automated notifications.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+    tags: ["FastAPI", "Python", "MySQL", "Pandas", "Excel Export", "Background Tasks"],
     category: "Backend",
   },
   {

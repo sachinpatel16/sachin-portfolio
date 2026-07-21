@@ -41,7 +41,7 @@ const techCategories = [
       { name: "LangGraph", desc: "Orchestrating complex multi-agent state loops and systems." },
       { name: "LangChain & LlamaIndex", desc: "Building prompt templates, retrievers, & semantic data indexes." },
       { name: "LoRA & QLoRA", desc: "Parameter-efficient fine-tuning (PEFT) of open-source LLMs under hardware constraints." },
-      { name: "YOLO & RetinaFace", desc: "Fine-tuning neural nets for custom object detection." }
+      { name: "Computer Vision", desc: "Object detection, face recognition, and custom OpenCV/YOLO pipelines." }
     ]
   },
   {

@@ -106,73 +106,150 @@ def query_kb(namespace_id: str, user_query: str):
     return response["answer"]`
     }
   },
-  "tms-system": {
-    title: "TMS System — AI-Powered Hiring & Team Match",
+  "hireme-ai": {
+    title: "HireMe AI — Intelligent Resume Screening & Candidate Management System",
     category: "AI/ML",
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1200&q=80",
-    tags: ["Reactjs", "FastAPI", "LangChain", "PostgreSQL", "AWS EC2", "AWS S3"],
+    tags: ["FastAPI", "LangChain", "LangGraph", "RAG", "PostgreSQL", "ChromaDB", "Docker"],
     duration: "5 Months",
-    role: "AI Backend Engineer",
-    client: "Internal Product",
-    overview: "The Team Management System (TMS) is an AI-powered talent acquisition platform. Instead of writing long, repetitive job descriptions manually, HR teams interact with a chat assistant that dynamically prompts them for tech stacks, team size, and role requirements. The platform then generates structured requirement JDs and automatically cross-references them against uploaded candidate resumes using vector similarity.",
-    challenge: "Extracting complex, structured details from unstructured HR conversations, generating high-fidelity standardized job descriptions, and building a high-speed parsing engine to match candidate resumes objectively based on semantic skills rather than simple keyword matches.",
-    solution: "Wired a LangChain conversational agent utilizing schema-driven function calling (JSON schemas). Deployed a document extraction pipeline using PyPDF2 and LangChain's unstructured parser. Resume content is vectorized and queried using PostgreSQL's `pgvector` extension to calculate cosine distance scores against the generated JD constraints.",
+    role: "Lead AI Backend Engineer",
+    client: "HR Tech Product Client",
+    overview: "HireMe AI is an AI-powered Resume Screening and Candidate Management System designed to automate recruitment. It features a smart matching engine that analyzes Job Descriptions (JDs) and candidate resumes to rank applicants based on skill alignment, experience, qualifications, and overall fit. By integrating structured resume parsing and agentic LLM matching, it speeds up candidate filtering for HR teams.",
+    challenge: "Accurately extracting diverse structured details from unstructured resume formats, minimizing false positives/negatives in candidate matching, and handling heavy concurrent document parsing without degrading system responsiveness.",
+    solution: "Designed a stateful LangGraph matching workflow combined with LangChain's vector search using ChromaDB. Implemented Celery and Redis to handle asynchronous background task parsing of incoming resumes, storing extracted structured data in PostgreSQL. Resume storage is handled securely via AWS S3.",
     achievements: [
-      "Accelerated the job creation lifecycle from hours to less than 5 minutes",
-      "Ranked and matched 500+ resumes per search query in under 2 seconds",
-      "Integrated AWS S3 secure resume upload with automatic lifecycle expiration rules",
-      "Decreased HR manual screening hours by 70% during initial candidate filtration"
+      "Ranked and matched candidate resumes against specific JDs with over 90% matching precision",
+      "Processed resume parsing asynchronously using Celery & Redis, ensuring sub-second UI response times",
+      "Built a multi-agent validation loop with LangGraph to verify resume facts against JD requirements",
+      "Successfully cut down manual HR screening and candidate shortlisting duration by 80%"
     ],
     techStack: [
-      { category: "AI Orchestration", items: ["LangChain Agents", "Function Calling APIs", "Bedrock / OpenAI", "pgvector"] },
-      { category: "Backend Core", items: ["FastAPI", "PostgreSQL", "SQLAlchemy", "PyPDF2 Resume Parser"] },
-      { category: "Frontend Client", items: ["React.js", "Tailwind CSS", "Axios"] },
-      { category: "Monitoring & Logs", items: ["AWS CloudWatch", "Uvicorn Logs", "Sentry"] }
+      { category: "AI & RAG Orchestration", items: ["LangGraph", "LangChain", "OpenAI / Ollama LLMs", "ChromaDB Vector Store"] },
+      { category: "Backend Core", items: ["FastAPI", "PostgreSQL", "SQLAlchemy", "Celery", "Redis"] },
+      { category: "Frontend Client", items: ["React.js", "Tailwind CSS", "WebSockets"] },
+      { category: "DevOps & Infrastructure", items: ["Docker", "AWS S3", "AWS Lambda", "GitHub Actions"] }
     ],
     architecture: [
-      "HR manager chats with the recruitment assistant, describing requirements in natural language.",
-      "LangChain agent calls structured JSON schemas to populate skills, experience, and budget.",
-      "The platform generates a standardized job description and compiles it as a vector query.",
-      "Candidate resumes uploaded to AWS S3 are parsed, tokenized, and stored in PostgreSQL with pgvector embeddings.",
-      "The system runs a cosine similarity query, outputting a ranked candidate list with match percentages."
+      "HR team creates and publishes a Job Description (JD) with custom requirements.",
+      "Candidate resumes are uploaded to AWS S3, triggering an asynchronous Celery task for parsing.",
+      "The system parses the document, extracts key skills and experience, and generates vector embeddings stored in ChromaDB.",
+      "The LangGraph engine executes a multi-stage semantic comparison between the JD guidelines and candidate embeddings.",
+      "Match scores, structured summaries, and custom insights are displayed on the React frontend dashboard via WebSockets."
     ],
     codeSnippet: {
-      filename: "hiring_agent.py",
+      filename: "matching_workflow.py",
       language: "python",
-      code: `from typing import List, Optional
-from pydantic import BaseModel, Field
-from langchain.agents import AgentExecutor, create_openai_functions_agent
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.tools import tool
-from langchain_openai import ChatOpenAI
+      code: `from typing import Dict, List, TypedDict
+from langgraph.graph import StateGraph, END
 
-# Schema definitions for job matching
-class JobProfileSchema(BaseModel):
-    title: str = Field(description="The job designation (e.g. Senior Backend Engineer)")
-    required_skills: List[str] = Field(description="List of mandatory technical programming skills")
-    min_experience_years: int = Field(description="Minimum years of experience required")
-    location_preference: str = Field(description="Remote, Hybrid, or Ahmedabad local")
+class MatchingState(TypedDict):
+    job_description: str
+    resume_text: str
+    extracted_skills: List[str]
+    match_score: float
+    fit_assessment: str
+    is_qualified: bool
 
-@tool
-def save_recruitment_requirements(profile: JobProfileSchema):
-    """Saves the finalized structured job requirements to trigger the matching index."""
-    # DB Save logic happens here
-    return f"Requirements for {profile.title} successfully parsed and indexed."
+def parse_skills_node(state: MatchingState) -> Dict:
+    # Simulates extracting skills using LLM structured output
+    return {"extracted_skills": ["FastAPI", "LangChain", "PostgreSQL", "Docker"]}
 
-# Define LLM and functional tools
-tools = [save_recruitment_requirements]
-llm = ChatOpenAI(model="gpt-4-turbo", temperature=0.0)
+def calculate_match_node(state: MatchingState) -> Dict:
+    # Evaluates semantic similarity and experience fit
+    return {"match_score": 85.5, "fit_assessment": "Strong technical alignment in backend engineering."}
 
-prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are an expert HR assistant. Guide the user to extract job titles, required skills, and experience."),
-    ("placeholder", "{chat_history}"),
-    ("human", "{input}"),
-    ("placeholder", "{agent_scratchpad}"),
-])
+def verification_node(state: MatchingState) -> Dict:
+    # Validates if candidate meets minimum thresholds
+    is_qualified = state["match_score"] >= 75.0
+    return {"is_qualified": is_qualified}
 
-# Create agent executor
-agent = create_openai_functions_agent(llm, tools, prompt)
-agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)`
+# Build LangGraph workflow
+workflow = StateGraph(MatchingState)
+workflow.add_node("parse_skills", parse_skills_node)
+workflow.add_node("calculate_match", calculate_match_node)
+workflow.add_node("verify_candidate", verification_node)
+
+workflow.set_entry_point("parse_skills")
+workflow.add_edge("parse_skills", "calculate_match")
+workflow.add_edge("calculate_match", "verify_candidate")
+workflow.add_edge("verify_candidate", END)
+
+app = workflow.compile()`
+    }
+  },
+  "vigilense": {
+    title: "Vigilense — AI-Powered Computer Vision Surveillance Platform",
+    category: "AI/ML",
+    image: "/image/vigilense.png",
+    tags: ["FastAPI", "YOLOv8", "OpenCV", "InsightFace", "DeepFace", "ByteTrack", "DeepSORT"],
+    duration: "6 Months",
+    role: "Lead Computer Vision Engineer",
+    client: "Enterprise Security Client",
+    overview: "Vigilense is an AI-powered computer vision surveillance platform built to process live CCTV camera feeds, images, and videos. It provides real-time security alerts and analytics, featuring key modules such as object detection, people counting, face recognition, vehicle detection, intrusion detection, and restricted zone monitoring. With multi-object tracking, it tracks individuals and assets across camera fields with high accuracy.",
+    challenge: "Handling low-latency real-time video streaming processing of multiple high-definition CCTV feeds concurrently, maintaining high object tracking accuracy under varying light and weather conditions, and generating instant notification alerts without bottlenecks.",
+    solution: "Constructed a high-throughput processing pipeline using OpenCV and YOLOv8 with tracking algorithms (ByteTrack and DeepSORT). The backend is powered by FastAPI and WebSockets for real-time alert dispatching, storing event logs in PostgreSQL and media alerts in AWS S3. Containerized using Docker for scalable edge deployment.",
+    achievements: [
+      "Maintained a sub-50ms inference latency for object detection and tracking per frame",
+      "Accurately tracked and counted people and vehicles with over 95% accuracy across feeds",
+      "Successfully detected zone intrusions and dispatched WebSocket notifications in under 200ms",
+      "Deployed modular Edge-AI pipelines using containerized Docker setups on local surveillance nodes"
+    ],
+    techStack: [
+      { category: "Computer Vision & ML", items: ["YOLOv8", "OpenCV", "InsightFace", "DeepFace", "Roboflow"] },
+      { category: "Object Tracking", items: ["ByteTrack", "DeepSORT"] },
+      { category: "Backend & Real-Time", items: ["FastAPI", "WebSockets", "PostgreSQL", "SQLAlchemy"] },
+      { category: "Infrastructure & Storage", items: ["Docker", "AWS S3", "Ubuntu Edge Nodes"] }
+    ],
+    architecture: [
+      "CCTV camera streams are captured and decoded using OpenCV frames.",
+      "Each frame is run through a YOLOv8 detection model and mapped onto ByteTrack/DeepSORT to preserve object identities.",
+      "Modules like intrusion detection check if bounding boxes cross predefined coordinates or zones.",
+      "Recognized faces are compared against a local database containing vector representations of registered faces using DeepFace/InsightFace.",
+      "When an event triggers, event metadata is saved to PostgreSQL, alert frames are pushed to AWS S3, and warning states are broadcasted to the frontend via WebSockets."
+    ],
+    codeSnippet: {
+      filename: "surveillance_pipeline.py",
+      language: "python",
+      code: `import cv2
+from ultralytics import YOLO
+
+class SurveillancePipeline:
+    def __init__(self, model_path: str):
+        # Initialize YOLOv8 model
+        self.model = YOLO(model_path)
+
+    def process_stream(self, stream_url: str):
+        cap = cv2.VideoCapture(stream_url)
+        while cap.isOpened():
+            ret, frame = cap.read()
+            if not ret:
+                break
+
+            # Run YOLOv8 detection
+            results = self.model.track(source=frame, persist=True)
+
+            for result in results:
+                boxes = result.boxes
+                for box in boxes:
+                    # Class ID, Bounding Box coordinates, and Confidence score
+                    cls_id = int(box.cls[0])
+                    coords = box.xyxy[0].tolist()
+                    conf = float(box.conf[0])
+                    
+                    if conf > 0.6:
+                        # Draw bounding box and trigger custom alerts
+                        self.trigger_zone_alert(cls_id, coords)
+
+            # Display or push frame to WebRTC/WebSockets
+            cv2.imshow("Surveillance Feed", frame)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+        cap.release()
+        cv2.destroyAllWindows()
+
+    def trigger_zone_alert(self, class_id: int, coordinates: list):
+        # Custom logic for intrusion alerts
+        pass`
     }
   },
   "learnify-ai": {
@@ -386,6 +463,77 @@ class VoucherRedeemView(APIView):
         )
         
         return Response({"success": "Voucher successfully redeemed"}, status=status.HTTP_200_OK)`
+    }
+  },
+  "hrms-system": {
+    title: "HRMS — Human Resource Management System",
+    category: "Backend",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    tags: ["FastAPI", "Python", "MySQL", "Pandas", "Excel Export", "Background Tasks"],
+    duration: "6 Months",
+    role: "Backend API Engineer",
+    client: "Internal Corporate Product",
+    overview: "The Human Resource Management System (HRMS) is designed to streamline employee administration and organizational operations. It features secure RESTful APIs to manage employee profile records, attendance tracking, leave/holiday allocations, policy guidelines, and automated notifications. Built with background task scheduling, it automates recurring employee management workflows.",
+    challenge: "Handling complex leave logic (roll-overs, allocations, and accruals), tracking precise employee time logs across timezones, and exporting large employee datasets into formatted Excel and CSV formats without memory leaks or server slowdowns.",
+    solution: "Engineered a FastAPI-based backend with background tasks for non-blocking asynchronous notifications and database updates. Optimized MySQL schema designs with proper index keys on employee and attendance tables. Used Pandas to write memory-efficient Excel/CSV exporters for corporate administration dashboards.",
+    achievements: [
+      "Designed robust SQL database indexing, accelerating profile search speeds by 60%",
+      "Implemented background leave accrual workers, eliminating manual calculations for HR teams",
+      "Developed clean Pandas export scripts that handle large-scale database exports in under 500ms",
+      "Constructed role-based access control (RBAC) to securely segregate admin and employee dashboards"
+    ],
+    techStack: [
+      { category: "Web Backend", items: ["FastAPI", "Python REST APIs", "SQLAlchemy ORM"] },
+      { category: "Database Core", items: ["MySQL", "Query Optimization", "Indexing"] },
+      { category: "Data Processing", items: ["Pandas Library", "CSV / Excel Formatting", "Data Manipulation"] },
+      { category: "Asynchronous Tools", items: ["FastAPI Background Tasks", "Cron Scheduling", "SMTP Mail Servers"] }
+    ],
+    architecture: [
+      "Admin uploads employee list or creates individual profile records via FastAPI.",
+      "Employees log time logs, attendance clock-ins, and leave requests.",
+      "FastAPI validates roles and writes records to MySQL database.",
+      "Accrual workers run in the background to calculate leave balances and trigger email warnings.",
+      "Admin filters reports on dashboard and triggers a Pandas exporter task, receiving a downloadable Excel sheet."
+    ],
+    codeSnippet: {
+      filename: "leave_approval.py",
+      language: "python",
+      code: `from fastapi import APIRouter, Depends, BackgroundTasks
+from sqlalchemy.orm import Session
+from .database import get_db
+from .models import LeaveRequest
+from .email import send_status_email
+
+router = APIRouter(prefix="/leaves", tags=["Leaves"])
+
+def notify_employee_task(request_id: int, status: str, email: str):
+    # Simulates sending asynchronous notification emails
+    send_status_email(email, f"Your leave request #{request_id} has been {status}.")
+
+@router.post("/{request_id}/approve")
+def approve_leave_request(
+    request_id: int, 
+    background_tasks: BackgroundTasks, 
+    db: Session = Depends(get_db)
+):
+    # Fetch leave request with row updates
+    leave_req = db.query(LeaveRequest).filter(LeaveRequest.id == request_id).first()
+    if not leave_req:
+        return {"error": "Leave request not found"}
+
+    # Update request status
+    leave_req.status = "Approved"
+    db.commit()
+
+    # Enqueue background task to avoid blocking the API thread
+    background_tasks.add_task(
+        notify_employee_task, 
+        request_id=leave_req.id, 
+        status="Approved", 
+        email=leave_req.employee.email
+    )
+
+    return {"message": "Leave request approved successfully"}`
     }
   },
   "telegram-support-bot": {
