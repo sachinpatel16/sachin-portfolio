@@ -12,7 +12,7 @@ export default function About() {
   const stats = [
     { label: "Completed Projects", value: "6+", desc: "AI chatbot platforms, RAG workflows, backends" },
     { label: "Client Satisfaction", value: "100%", desc: "Direct reviews and successful deliverables" },
-    { label: "Industry Experience", value: "3.5+ Years", desc: "Python, Django, FastAPI & agentic workflows" },
+    { label: "Industry Experience", value: "3.6+ Years", desc: "Python, Django, FastAPI & agentic workflows" },
     { label: "Response SLA", value: "< 24h", desc: "Available for active engineering contracts" }
   ];
 
@@ -39,7 +39,7 @@ export default function About() {
             Architecting intelligent backend systems <span className="text-stone-400 font-serif italic">that scale.</span>
           </h2>
           <p className="text-stone-600 text-sm sm:text-base leading-relaxed font-sans">
-            I am Sachin Patel, a passionate Python &amp; AI/ML Developer with over 3.5+ years of experience building scalable backend architectures and AI-driven solutions. I specialize in backend frameworks like Django, DRF, and FastAPI, coupled with advanced agentic LLM pipelines using LangChain, LangGraph, DSPy, and Bedrock Agents.
+            I am Sachin Patel, a passionate Python &amp; AI/ML Developer with over 3.6+ years of experience building scalable backend architectures and AI-driven solutions. I specialize in backend frameworks like Django, DRF, and FastAPI, coupled with advanced agentic LLM pipelines using LangChain, LangGraph, DSPy, and Bedrock Agents.
           </p>
         </motion.div>
 

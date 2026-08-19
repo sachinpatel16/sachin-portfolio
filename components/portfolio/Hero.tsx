@@ -16,7 +16,7 @@ const notebookPages = [
     id: "overview", 
     label: "Overview", 
     title: "systems_architecture.py",
-    content: "class Engineer:\n    name = \"Sachin Patel\"\n    specialty = \"Python & AI/ML Development\"\n    experience = \"3.5+ Years\"\n    philosophy = \"Build clean, agentic systems. Optimize DB and memory.\"\n\n# Objective:\n# Deploy FastAPI/Django rest interfaces,\n# build intelligent RAG pipelines with LangGraph & DSPy,\n# fine-tune LLMs using LoRA & QLoRA,\n# optimize computer vision (YOLO) pipelines."
+    content: "class Engineer:\n    name = \"Sachin Patel\"\n    specialty = \"Python & AI/ML Development\"\n    experience = \"3.6+ Years\"\n    philosophy = \"Build clean, agentic systems. Optimize DB and memory.\"\n\n# Objective:\n# Deploy FastAPI/Django rest interfaces,\n# build intelligent RAG pipelines with LangGraph & DSPy,\n# fine-tune LLMs using LoRA & QLoRA,\n# optimize computer vision (YOLO) pipelines."
   },
   { 
     id: "llm", 
@@ -187,7 +187,7 @@ export default function Hero() {
               </button>
               
               <a
-                href="/docs/Sachin_Patel_3+.pdf"
+                href="/docs/Sachin_Patel_3.6+.pdf"
                 download
                 className="px-5 py-3 bg-white hover:bg-stone-50 text-[#1C1917] border border-[#EAEAE4] hover:border-[#B45309] font-mono text-[10px] uppercase tracking-wider transition-all duration-200 flex items-center gap-2"
               >
