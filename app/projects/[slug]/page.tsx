@@ -590,6 +590,116 @@ return [{
   }
 }];`
     }
+  },
+  "ai-buddy": {
+    title: "AI Buddy — AI-Powered Personal AI Companion",
+    category: "AI/ML",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80",
+    tags: ["Next.js", "Python", "FastAPI", "PostgreSQL", "Vector Database", "RAG Pipeline", "LLM", "AWS EC2", "AWS S3", "LangChain", "Multi-Agent", "Prompt Tuning"],
+    duration: "4 Months",
+    role: "Senior AI Engineer",
+    client: "AI Companion Platform",
+    overview: "Developed an AI-powered personal companion that provides personalized, natural conversations and acts like a real friend after user onboarding. Implemented short-term and long-term memory using RAG and vector databases to maintain user context, preferences, and past conversations. Built multi-agent workflows with Google Search tools and relationship management capabilities, along with customizable AI voice/audio and multilingual support to deliver personalized and context-aware interactions.",
+    challenge: "Maintaining consistent personal memory and context across long conversational histories without exceeding model context limits, ensuring low-latency response streaming, and orchestrating multi-agent tool execution with real-time web search.",
+    solution: "Architected a dual memory model separating episodic short-term session state from semantic long-term memory indexed in a vector database. Used LangChain multi-agent patterns to delegate queries requiring external information to Google Search tools, while routing companion queries through fine-tuned prompt instructions. Integrated FastAPI streaming endpoints with Next.js frontend audio playback.",
+    achievements: [
+      "Built resilient short-term and long-term conversational memory with RAG and vector databases",
+      "Integrated multi-agent execution loops with Google Search tools and relationship tracking",
+      "Provided customizable voice synthesis and multilingual audio support for real-time interaction",
+      "Deployed scalable FastAPI backend services on AWS EC2 and S3 with sub-second response times"
+    ],
+    techStack: [
+      { category: "AI & Agents", items: ["LangChain Multi-Agent", "RAG Pipeline", "Vector Database", "Prompt Tuning", "LLM Integration"] },
+      { category: "Backend & Storage", items: ["FastAPI", "Python", "PostgreSQL", "SQLAlchemy", "Alembic"] },
+      { category: "Frontend", items: ["Next.js", "React.js", "Tailwind CSS", "Web Audio API"] },
+      { category: "Cloud & Infra", items: ["AWS EC2", "AWS S3", "Docker", "Nginx"] }
+    ],
+    architecture: [
+      "User completes interactive onboarding to configure companion personality and communication preferences.",
+      "Incoming user dialogue is vectorized and cross-referenced against past conversation memory.",
+      "Multi-agent router decides whether to query Google Search tools or respond from internal persona memory.",
+      "FastAPI formats the persona prompt and streams context-aware LLM text and synthesized audio back to the Next.js client."
+    ],
+    codeSnippet: {
+      filename: "companion_memory_agent.py",
+      language: "python",
+      code: `from fastapi import FastAPI
+from langchain.memory import VectorStoreRetrieverMemory
+from langchain_community.vectorstores import Pinecone
+from langchain.agents import initialize_agent, Tool
+
+app = FastAPI(title="AI Buddy Companion Service")
+
+@app.post("/api/companion/chat")
+async def chat_with_companion(user_id: str, message: str):
+    # Retrieve user semantic history
+    relevant_memories = await memory_retriever.get_relevant_documents(
+        f"user:{user_id} query:{message}"
+    )
+    context = "\\n".join([doc.page_content for doc in relevant_memories])
+    
+    # Run multi-agent orchestrator with tools and memory
+    response = await agent_executor.arun(
+        input=message,
+        system_context=context,
+        user_id=user_id
+    )
+    return {"reply": response}`
+    }
+  },
+  "ai-gym-buddy": {
+    title: "AI Gym Buddy — AI-Powered Personalized Fitness & Workout Assistant",
+    category: "AI/ML",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80",
+    tags: ["Next.js", "Python", "FastAPI", "LangGraph", "LangChain", "Agentic AI", "LLM", "PostgreSQL", "AWS EC2"],
+    duration: "3 Months",
+    role: "AI & Backend Developer",
+    client: "Fitness Tech Platform",
+    overview: "Developed an AI-powered fitness assistant that uses an onboarding process to collect user fitness goals, body information, preferences, and requirements, then generates personalized diet, workout, exercise, and equipment plans for weight gain or weight loss. Implemented agentic AI workflows to provide personalized guidance, track user progress, and dynamically adapt fitness plans based on user performance and goals.",
+    challenge: "Handling complex multi-factor constraints (injuries, caloric budgets, available equipment, schedule variations) while ensuring workout plans are medically sound, personalized, and dynamically reactive to logged user fatigue and progress.",
+    solution: "Constructed a state machine using LangGraph that guides users through structured onboarding, validates nutritional and exercise constraints, and continuously evaluates progress logs. Developed FastAPI services backed by PostgreSQL for state persistence, deployed on AWS EC2.",
+    achievements: [
+      "Built dynamic diet, workout, and equipment generation engines tailored to weight loss and muscle gain goals",
+      "Implemented stateful LangGraph agentic workflows that adapt plans in real-time based on logged user sessions",
+      "Engineered automated macro-nutrient calculation and progressive overload tracking algorithms",
+      "Delivered a seamless Next.js and FastAPI application with responsive workout visualization"
+    ],
+    techStack: [
+      { category: "Agentic AI & ML", items: ["LangGraph State Machine", "LangChain", "LLM Prompt Chains", "Agentic Workflows"] },
+      { category: "Backend", items: ["FastAPI", "Python", "PostgreSQL", "SQLAlchemy", "Pydantic"] },
+      { category: "Frontend", items: ["Next.js", "React.js", "Tailwind CSS", "Framer Motion"] },
+      { category: "Deployment", items: ["AWS EC2", "Docker", "PostgreSQL on RDS"] }
+    ],
+    architecture: [
+      "User submits physical stats, dietary preferences, and target fitness objectives during onboarding.",
+      "LangGraph agent parses restrictions, calculates caloric needs, and synthesizes structured workout routines.",
+      "User logs workout completions and fatigue scores via the Next.js interface.",
+      "Agent state loop analyzes progress metrics and adjusts weights, repetitions, or rest days accordingly."
+    ],
+    codeSnippet: {
+      filename: "workout_state_graph.py",
+      language: "python",
+      code: `from langgraph.graph import StateGraph, END
+from typing import TypedDict, List
+
+class FitnessState(TypedDict):
+    user_id: str
+    goals: dict
+    current_plan: dict
+    logged_feedback: str
+    updated_plan: dict
+
+def evaluate_progress(state: FitnessState):
+    feedback = state["logged_feedback"]
+    # Adjust volume, intensity or caloric intake
+    adjusted_plan = adapt_workout_plan(state["current_plan"], feedback)
+    return {"updated_plan": adjusted_plan}
+
+builder = StateGraph(FitnessState)
+builder.add_node("evaluate", evaluate_progress)
+builder.add_edge("evaluate", END)
+fitness_graph = builder.compile()`
+    }
   }
 };
 

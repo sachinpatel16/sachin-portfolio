@@ -95,7 +95,7 @@ export default function Navbar() {
 
               {/* CV Download button */}
               <motion.a
-                href="/docs/Sachin_Patel_3.6+.pdf"
+                href="/docs/Sachin_Patel_Ai_develope_4.pdf"
                 download
                 whileHover={{ y: -1 }}
                 whileTap={{ scale: 0.98 }}
@@ -161,7 +161,7 @@ export default function Navbar() {
             ))}
 
             <motion.a
-              href="/docs/Sachin_Patel_3.6+.pdf"
+              href="/docs/Sachin_Patel_Ai_develope_4.pdf"
               download
               className="mt-6 px-4 py-3 font-mono text-xs uppercase tracking-widest bg-white border border-[#EAEAE4] text-[#1C1917] text-center flex items-center justify-center gap-1.5"
             >

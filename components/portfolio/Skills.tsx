@@ -28,16 +28,15 @@ const skills = [
   { name: "DSPy", category: "ai", level: "Advanced", desc: "Programmatic model prompt tuning and reasoning chains" },
   { name: "RAG Systems", category: "ai", level: "Expert", desc: "Semantic retrieval, file chunking, and index queries" },
   { name: "Bedrock Agents", category: "ai", level: "Advanced", desc: "Fully managed conversational agent workflows" },
-  { name: "Vector DBs", category: "ai", level: "Advanced", desc: "Pinecone and pgvector database integration" },
+  { name: "Vector DBs", category: "ai", level: "Advanced", desc: "Pinecone, ChromaDB, and semantic vector similarity search" },
   { name: "LlamaIndex", category: "ai", level: "Advanced", desc: "Data connectors and context-aware indexing" },
-  { name: "Computer Vision", category: "ai", level: "Advanced", desc: "Object detection, face recognition, and custom OpenCV & YOLO pipelines" },
+  { name: "Computer Vision", category: "ai", level: "Advanced", desc: "YOLO, RetinaFace, InsightFace, ByteTrack, and OpenCV pipelines" },
   
   // DevOps
   { name: "AWS S3 & EC2", category: "infra", level: "Advanced", desc: "Virtual servers, storage configurations, and security groups" },
   { name: "AWS Lambda & RDS", category: "infra", level: "Advanced", desc: "Serverless functions and cloud database execution" },
   { name: "AWS SageMaker", category: "infra", level: "Advanced", desc: "Model compilation, training, and endpoint hosting" },
-  { name: "AWS Glue", category: "infra", level: "Intermediate", desc: "Serverless data preparation and ETL jobs" },
-  { name: "Docker", category: "infra", level: "Advanced", desc: "Standardized service container building and deployment" },
+  { name: "Docker & Sockets", category: "infra", level: "Advanced", desc: "Containerized deployment, microservices, and WebSockets" },
   
   // Automation & Tools
   { name: "n8n Automation", category: "automation", level: "Expert", desc: "Visual node-based API workflow automation and bots" },

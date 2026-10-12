@@ -8,17 +8,17 @@ const experiences = [
   {
     type: "work",
     title: "Senior Python Developer",
-    company: "Ajeevantech Global IT Solutions",
-    location: "Ahmedabad, Gujarat, India",
+    company: "AjeevanTech Global IT Solution",
+    location: "Surat, Gujarat, India",
     period: "01/2023 — Present",
     current: true,
     description:
-      "Architect and deliver scalable backend architectures, multi-agent AI systems, and custom computer vision pipelines. Lead the development of high-performance microservices and secure data APIs.",
+      "Hands-on experience in statistical analysis, machine learning, and scalable web development using Django & FastAPI. Build intelligent multi-agent AI systems, custom computer vision pipelines, and production backend architectures.",
     achievements: [
-      "Build intelligent multi-agent conversational workflows and RAG pipelines using LangChain, LangGraph, and DSPy",
+      "Build intelligent multi-agent conversational workflows and context-aware RAG pipelines using LangChain, LangGraph, DSPy, and Bedrock Agents",
       "Develop and optimize high-throughput asynchronous REST APIs using FastAPI, Django, and Django REST Framework",
-      "Design and deploy custom computer vision and object detection pipelines using OpenCV, YOLO, and RetinaFace",
-      "Orchestrate containerized services and scalable database configurations on AWS cloud environments (EC2, S3, Lambda, RDS)",
+      "Design and fine-tune custom computer vision and object detection pipelines using OpenCV, YOLO, and RetinaFace",
+      "Deploy, monitor, and scale applications on AWS cloud environments (EC2, S3, Lambda, RDS, SageMaker, CloudWatch, ECS)",
     ],
   },
   {

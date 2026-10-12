@@ -25,6 +25,24 @@ const projects = [
     category: "AI/ML",
   },
   {
+    slug: "ai-buddy",
+    title: "AI Buddy – Personal AI Companion",
+    description:
+      "An AI-powered personal companion that provides personalized, natural conversations and acts like a real friend after user onboarding. Implements short-term and long-term memory with RAG & vector databases, multi-agent Google Search tools, and customizable voice/audio support.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+    tags: ["Next.js", "Python", "FastAPI", "PostgreSQL", "Vector DB", "RAG Pipeline", "LangChain", "Multi-Agent", "AWS EC2"],
+    category: "AI/ML",
+  },
+  {
+    slug: "ai-gym-buddy",
+    title: "AI Gym Buddy – Fitness & Workout Assistant",
+    description:
+      "An AI-powered personalized fitness assistant that collects user goals and metrics to generate personalized diet, workout, exercise, and equipment plans with agentic AI workflows that dynamically adapt to progress.",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80",
+    tags: ["Next.js", "FastAPI", "LangGraph", "LangChain", "Agentic AI", "PostgreSQL", "AWS EC2"],
+    category: "AI/ML",
+  },
+  {
     slug: "vigilense",
     title: "Vigilense – CV Surveillance Platform",
     description:
